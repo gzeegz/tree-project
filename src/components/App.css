@@ -1,0 +1,138 @@
+.modal-container {
+  background-color: #fff;
+  margin: 40px auto;
+  width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px #bbb;
+  font-size: 10pt;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 48px;
+  font-size: 12pt;
+  font-weight: normal;
+  border-bottom: 1px solid #ddd;
+  padding: 0 11px;
+}
+
+.modal-close {
+  background: url('../images/icon-sprite.png');
+  background-position: -42px 0;
+  height: 14px;
+  width: 14px;
+  float: right;
+}
+
+.modal-label {
+  color: #bbb;
+  padding: 0 11px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 0 11px;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+.modal-footer a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.modal-footer button {
+  color: #fff;
+  background-color: #4285f4;
+  padding: 7px 14px;
+  border: none;
+  border: 1px solid #307af2;
+  border-radius: 2px;
+}
+
+.tree-container {
+  color: #3d3d3d;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.tree-container > div > ul {
+  padding-left: 11px;
+}
+
+li > div > span {
+  display: block;
+  padding-left: 400px;
+  margin-left: -400px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  line-height: 24px;
+}
+
+li > div > span:hover {
+  background-color: #4285f4;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tree-icon {
+  background: url('../images/icon-sprite.png');
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.tree-folder {
+  background-position: 0 0;
+}
+
+.tree-private-folder {
+  background-position: -14px 0;
+}
+
+.tree-file {
+  background-position: -28px 0;
+}
+
+.tree-close {
+  background-position: -70px 0;
+}
+
+.tree-open {
+  background-position: -56px 0;
+}
+
+.tree-item-selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+li > div > span:hover .tree-close, .tree-item-selected .tree-close {
+  background-position: -98px 0;
+}
+
+li > div > span:hover .tree-open, .tree-item-selected .tree-open {
+  background-position: -84px 0;
+}
