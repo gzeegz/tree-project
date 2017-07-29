@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const TreeNode = ({ node, collapsed, path, selected, onCollapse }) => {
   const renderIcon = () => {
@@ -66,6 +67,14 @@ const TreeNode = ({ node, collapsed, path, selected, onCollapse }) => {
       </ul>
     </div>
   );
+};
+
+TreeNode.propTypes = {
+  node: PropTypes.object.isRequired,
+  collapsed: PropTypes.object.isRequired,
+  path: PropTypes.string.isRequired,
+  selected: PropTypes.string.isRequired,
+  onCollapse: PropTypes.func.isRequired,
 };
 
 export default TreeNode;
