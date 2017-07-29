@@ -10,17 +10,19 @@ class App extends Component {
 
     this.state = {
       tree: data,
-      selected: null,
+      collapsed: {},
+      selected: '',
     };
   }
 
-  handleCollapse = (node) => {
-    const tree = this.state.tree;
-    if (node.type === 'folder') {
-      node.collapsed = !node.collapsed;
-      this.setState({ tree });
-    }
-    this.setState({ selected: node });
+  handleCollapse = (path) => {
+    this.setState((prevState, props) => ({
+      selected: path,
+      collapsed: {
+        ...prevState.collapsed,
+        [path]: !prevState.collapsed[path],
+      },
+    }));
   }
 
   render() {
@@ -38,13 +40,15 @@ class App extends Component {
         <div className="tree-container">
           <TreeNode
             node={this.state.tree}
-            onCollapse={this.handleCollapse}
+            collapsed={this.state.collapsed}
+            path={''}
             selected={this.state.selected}
+            onCollapse={this.handleCollapse}
           />
         </div>
 
         <div className="modal-footer">
-          <a href="#">Link</a>
+          <a>Link</a>
           <button>Done</button>
         </div>
       </div>

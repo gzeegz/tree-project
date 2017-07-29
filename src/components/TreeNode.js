@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const TreeNode = ({ node, onCollapse, onAdd, selected }) => {
+const TreeNode = ({ node, collapsed, path, selected, onCollapse }) => {
   const renderIcon = () => {
     let icon;
     if (node.private && node.type === 'folder') {
@@ -33,8 +33,10 @@ const TreeNode = ({ node, onCollapse, onAdd, selected }) => {
         <li key={index}>
           <TreeNode
             node={childNode}
-            onCollapse={onCollapse}
+            collapsed={collapsed}
+            path={`${path}/${childNode.name}`}
             selected={selected}
+            onCollapse={onCollapse}
           />
         </li>
       );
@@ -42,7 +44,7 @@ const TreeNode = ({ node, onCollapse, onAdd, selected }) => {
   }
 
   const style = {};
-  if (node.collapsed) {
+  if (collapsed[path]) {
     style.display = 'none';
   }
 
@@ -50,8 +52,8 @@ const TreeNode = ({ node, onCollapse, onAdd, selected }) => {
     <div>
       { node.name &&
         <span
-          onClick={() => onCollapse(node)}
-          className={classNames({ 'tree-item-selected': node === selected})}
+          onClick={() => onCollapse(path)}
+          className={classNames({ 'tree-item-selected': path === selected})}
         >
           {renderTreeControl()}
           {renderIcon()}
